@@ -55,8 +55,8 @@ npm create vite@latest
 
 # Select typescript
 ? Select a variant: › - Use arrow-keys. Return to submit.
-    react
-❯   react-ts
+❯  react
+   react-ts
 
 
 cd todo-app
