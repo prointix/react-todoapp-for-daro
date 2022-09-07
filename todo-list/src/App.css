@@ -6,12 +6,8 @@
     'Lucida Sans', Arial, sans-serif;
 }
 body {
-  background-color: #eefff9;
+  background-color: #eefdfa;
   
-}
-
-.bottom-detail{
-  margin-top: 50px;
 }
 
 #done-btn{
@@ -21,10 +17,10 @@ body {
   cursor: pointer;
   outline: none;
   background: #FFFFFF;
-  border: 2px solid green;
+  border: 2px solid #33b75e;
   border-radius: 5px;
   text-transform: capitalize;
-  color: green
+  color:green
 }
 
 #remove-btn{
@@ -39,20 +35,22 @@ body {
   text-transform: capitalize;
   color: #FF2C2C
 }
+#remove-btn:hover{
+  background: #FF2C2C;
+  color: #FFFFFF;
+}
 
 
 .todo-app {
   display: flex;
   flex-direction: column;
-  justify-content: start;
   width: 45%;
-  min-height: auto;
   background: white;
-  text-align: center;
   margin: 128px auto;
-  border-radius: 10px;
+  border-radius: 2px;
   padding-bottom: 0px;
 }
+
 
 h1 {
   margin: 32px 0;
@@ -76,16 +74,28 @@ h1 {
   text-transform: capitalize;
 }
 
+#done-btn:hover{
+  background-color: #33b75e;
+  color: white;
+}
+
+#not-done-btn:hover{
+  background-color: gray;
+  color: white;
+}
+
 .todo-form {
   margin-bottom: 32px;
+  align-self: center;
 }
 
 .todo-input {
   padding: 14px 32px 14px 16px;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0px 4px;
   border: 2px solid gray;
   outline: none;
-  width: 320px;
+  width: 440px;
+  height: 45px;
 }
 
 .todo-button {
@@ -96,11 +106,20 @@ h1 {
   outline: none;
   margin-left: 20px;
   background: #FFFFFF;
-  border: 1px solid #1AA7EC;
+  border: 1px solid #8bdcd2;
   border-radius: 5px;
   text-transform: capitalize;
-  color:#1AA7EC ;
+  color:#8bdcd2 ;
 }
+.todo-button:hover{
+  background-color: #8bdcd2;
+  color: white;
+}
+
+.todo-button:focus{
+
+}
+
 
 .todo-container {
   display: flex;
@@ -116,7 +135,7 @@ h1 {
   margin: 4px auto;
   color: black;
   background: white;
-  padding: 16px;
+  padding: 20px;
   border-radius: 5px;
   width: 90%;
 }
@@ -130,13 +149,14 @@ h1 {
 
 .seperator {
   height: 1px;
-  width: 80%;
+  width: 85%;
   align-self: center;
   background-color: black;
 }
 
 .controls{
   padding: 18px 25px;
+  margin-bottom: 5px;
 }
 
 .controls, li{
@@ -147,19 +167,18 @@ h1 {
 .controls .clear-btn{
   padding: 7px;
   border: none;
-  border-radius: 0 2px 2px 0;
   cursor: pointer;
-  outline: none;
   background: #FFFFFF;
   border: 2px solid;
-  border-radius: 5px;
-  text-transform: capitalize;
+  outline: none;
+  
 }
 .controls{
-  padding: 50px 50px;
+  padding: 20px 50px;
+  font-size: 13px;
 }
 #left-item{
-  color:#454545
+  color:#969aa2
 }
 
 .filters button{
@@ -175,7 +194,23 @@ h1 {
   margin-left: 0;
 }
 .filters button.active{
-  color: #3C87FF;
+  padding: 4px;
+  border: none;
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
+  outline: none;
+  background: #FFFFFF;
+  border: 2px solid #ededef;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.clear-button{
+  border: none;
+  background-color: white;
+  font-size: 12px;
+  color:#969aa2;
+  cursor: pointer;
 }
 button.on{
   padding: 10px;
@@ -193,6 +228,10 @@ button.on{
 
 .filters span{
   margin: 0 5px;
+}
+.filters button{
+  color: #969aa2;
+  font-size: 10px;
 }
 
 @media (max-width: 400px) {
