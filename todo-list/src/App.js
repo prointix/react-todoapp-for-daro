@@ -8,10 +8,10 @@ import Todolist from "./components/TodoItem.js";
 const App = () => {
   const [todos, setTodos] = useState([]);
   const LOCAL_STORAGE_KEY = "todoList.app";
-  const [status, setStatus] = useState("all");
+  const [status, setStatus] = useState("All");
 
   const addTodo = (text) => {
-    if (text === "") return;
+    if (text.trim() === "") return alert("Please input some text");
 
     let todo = { id: uuidv4(), text: text, completed: false };
     let newTodos = [todo, ...todos];
@@ -24,11 +24,15 @@ const App = () => {
     if (retriveTodos) setTodos(retriveTodos);
   }, []);
 
+  const saveTocalStorage = (newTodos) => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTodos));
+  };
+
   const removeTodo = (id) => {
     let updatedTodos = [...todos].filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
     // remove from local storage
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedTodos));
+    saveTocalStorage(updatedTodos);
   };
 
   const completeTodo = (id) => {
@@ -39,15 +43,14 @@ const App = () => {
       return todo;
     });
     setTodos(updatedTodos);
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedTodos));
+    saveTocalStorage(updatedTodos);
   };
-
   const toggleTodo = (id) => {
     const newTodos = [...todos];
     const todo = newTodos.find((todo) => todo.id === id);
     todo.completed = !todo.completed;
     setTodos(newTodos);
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTodos));
+    saveTocalStorage(newTodos);
   };
   const filteredTodos = todos.filter((todo) => {
     if (status === "Completed") {
@@ -58,7 +61,7 @@ const App = () => {
     }
     return todo;
   });
-
+  console.log(status)
   const statusHandler = (e) => {
     setStatus(e.target.value);
   };
@@ -109,7 +112,7 @@ const App = () => {
         </div>
         <button
           className={status === "deleteCompletedTodo" ? "on" : "clear-button"}
-          onClick={statusHandler}
+          onClick= {()=>{setStatus("deleteCompletedTodo");setTodos(todos.filter((todo) => !todo.completed)); saveTocalStorage(todos.filter((todo) => !todo.completed))}}
           value="deleteCompletedTodo"
         >
           Clear completed
