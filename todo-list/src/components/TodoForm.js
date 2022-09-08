@@ -5,6 +5,7 @@ const Todo = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.addTodo(input);
+    setInput("");
   };
   return (
     <>
