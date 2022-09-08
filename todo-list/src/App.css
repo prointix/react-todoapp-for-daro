@@ -96,7 +96,7 @@ h1 {
   border-radius: 4px 0 0px 4px;
   border: 2px solid gray;
   outline: none;
-  width: 78%;
+  width: 70%;
   height: 100%;
 }
 
@@ -176,7 +176,7 @@ h1 {
   font-size: 13px;
 }
 #left-item{
-  color:#969aa2
+  color:#969aa2;
 }
 
 .filters button{

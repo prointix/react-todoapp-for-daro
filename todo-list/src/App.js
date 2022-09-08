@@ -6,7 +6,6 @@ import Todo from "./components/TodoForm";
 import Todolist from "./components/TodoItem.js";
 
 const App = () => {
-
   const [todos, setTodos] = useState([]);
   const LOCAL_STORAGE_KEY = "todoList.app";
   const [status, setStatus] = useState("All");
@@ -41,7 +40,6 @@ const App = () => {
         todo.completed = !todo.completed;
       }
       return todo;
-
     });
     setTodos(updatedTodos);
     saveTocalStorage(updatedTodos);
@@ -68,6 +66,12 @@ const App = () => {
 
   const statusHandler = (e) => {
     setStatus(e.target.value);
+  };
+
+  const deleteCompletedTodo = (event) => {
+    setStatus("deleteCompletedTodo");
+    setTodos(todos.filter((todo) => !todo.completed));
+    saveTocalStorage(todos.filter((todo) => !todo.completed));
   };
 
   return (
@@ -117,11 +121,7 @@ const App = () => {
         </div>
         <button
           className={status === "deleteCompletedTodo" ? "on" : "clear-button"}
-          onClick={() => {
-            setStatus("deleteCompletedTodo");
-            setTodos(todos.filter((todo) => !todo.completed));
-            saveTocalStorage(todos.filter((todo) => !todo.completed));
-          }}
+          onClick={deleteCompletedTodo}
           value="deleteCompletedTodo"
         >
           Clear completed
