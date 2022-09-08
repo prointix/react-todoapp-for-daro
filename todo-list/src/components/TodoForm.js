@@ -1,12 +1,15 @@
 import React from "react";
 
 const Todo = (props) => {
+  
   const [input, setInput] = React.useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     props.addTodo(input);
     setInput("");
   };
+
   return (
     <>
       <form onSubmit={handleSubmit} className="todo-form">
