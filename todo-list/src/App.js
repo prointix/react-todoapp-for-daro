@@ -6,13 +6,13 @@ import Todo from "./components/TodoForm";
 import Todolist from "./components/TodoItem.js";
 
 const App = () => {
+
   const [todos, setTodos] = useState([]);
   const LOCAL_STORAGE_KEY = "todoList.app";
   const [status, setStatus] = useState("All");
 
   const addTodo = (text) => {
     if (text.trim() === "") return alert("Please input some text");
-
     let todo = { id: uuidv4(), text: text, completed: false };
     let newTodos = [todo, ...todos];
     setTodos(newTodos);
@@ -41,17 +41,21 @@ const App = () => {
         todo.completed = !todo.completed;
       }
       return todo;
+
     });
     setTodos(updatedTodos);
     saveTocalStorage(updatedTodos);
   };
+
   const toggleTodo = (id) => {
     const newTodos = [...todos];
     const todo = newTodos.find((todo) => todo.id === id);
+
     todo.completed = !todo.completed;
     setTodos(newTodos);
     saveTocalStorage(newTodos);
   };
+
   const filteredTodos = todos.filter((todo) => {
     if (status === "Completed") {
       return todo.completed;
@@ -61,10 +65,11 @@ const App = () => {
     }
     return todo;
   });
-  console.log(status)
+
   const statusHandler = (e) => {
     setStatus(e.target.value);
   };
+
   return (
     <div className="todo-app">
       <Todo addTodo={addTodo} />
@@ -112,7 +117,11 @@ const App = () => {
         </div>
         <button
           className={status === "deleteCompletedTodo" ? "on" : "clear-button"}
-          onClick= {()=>{setStatus("deleteCompletedTodo");setTodos(todos.filter((todo) => !todo.completed)); saveTocalStorage(todos.filter((todo) => !todo.completed))}}
+          onClick={() => {
+            setStatus("deleteCompletedTodo");
+            setTodos(todos.filter((todo) => !todo.completed));
+            saveTocalStorage(todos.filter((todo) => !todo.completed));
+          }}
           value="deleteCompletedTodo"
         >
           Clear completed

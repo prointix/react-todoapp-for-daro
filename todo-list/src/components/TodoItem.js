@@ -1,6 +1,7 @@
 import React from "react";
 
 const Todolist = (props) => {
+  
   const { todo, removeTodo, completeTodo, toggleTodo } = props;
 
   return (
