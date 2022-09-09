@@ -162,15 +162,7 @@ h1 {
   align-items: center;
   justify-content: space-between;
 }
-.controls .clear-btn{
-  padding: 7px;
-  border: none;
-  cursor: pointer;
-  background: #FFFFFF;
-  border: 2px solid;
-  outline: none;
-  
-}
+
 .controls{
   padding: 20px 50px;
   font-size: 13px;
@@ -179,6 +171,9 @@ h1 {
   color:#969aa2;
 }
 
+.clear-button:hover{
+  text-decoration: underline;
+}
 .filters button{
   margin: 0 8px;
   font-size: 17px;
