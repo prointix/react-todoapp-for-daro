@@ -25,7 +25,6 @@ const TodoItem = (props) => {
           &nbsp;&nbsp;
           <button
             id="remove-btn"
-            style={{ marginRight: 5 }}
             onClick={() => removeTodo(todo.id)}
           >
             Remove

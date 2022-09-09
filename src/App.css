@@ -5,9 +5,9 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
-body {
+
+body{
   background-color: #eefdfa;
-  
 }
 
 #done-btn{
@@ -41,15 +41,7 @@ body {
 }
 
 
-.todo-app {
-  display: flex;
-  flex-direction: column;
-  width: 45%;
-  background: white;
-  margin: 128px auto;
-  border-radius: 2px;
-  padding-bottom: 0px;
-}
+
 
 
 h1 {
@@ -84,20 +76,28 @@ h1 {
   color: white;
 }
 
-.todo-form {
-  margin-bottom: 32px;
-  margin-left: 15%;
-  width: 100%;
-  align-self: center;
+.todo-app {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  background: white;
+  margin: 128px auto;
+  border-radius: 2px;
+  padding-bottom: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.input-container {
+  display: flex;
 }
 
 .todo-input {
+  flex: 1;
   padding: 14px 32px 14px 16px;
   border-radius: 4px 0 0px 4px;
   border: 2px solid gray;
   outline: none;
-  width: 70%;
-  height: 100%;
 }
 
 .todo-button {
@@ -121,52 +121,35 @@ h1 {
 
 .todo-container {
   display: flex;
-  flex-direction: row;
   position: relative;
 }
-/* make space for each of item */
 
 .todo-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4px auto;
   color: black;
   background: white;
-  padding: 20px;
+  padding: 15px 0;
   border-radius: 5px;
-  width: 90%;
-}
-
-.iconsContainer {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  cursor: pointer;
 }
 
 .seperator {
   height: 1px;
-  width: 85%;
-  align-self: center;
   background-color: black;
 }
 
 .controls{
-  padding: 18px 25px;
-  margin-bottom: 5px;
+  font-size: 13px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .controls, li{
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
-.controls{
-  padding: 20px 50px;
-  font-size: 13px;
-}
 #left-item{
   color:#969aa2;
 }

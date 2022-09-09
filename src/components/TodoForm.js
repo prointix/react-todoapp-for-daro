@@ -13,6 +13,7 @@ const TodoForm = (props) => {
     <>
       <form onSubmit={handleSubmit} className="todo-form">
         <h1>Todo List</h1>
+        <div className="input-container">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -22,6 +23,7 @@ const TodoForm = (props) => {
           <button type="submit" className="todo-button">
             Add
           </button>
+        </div>
       </form>
     </>
   );
