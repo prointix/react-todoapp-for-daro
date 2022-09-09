@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todolist = (props) => {
+const TodoItem = (props) => {
   
   const { todo, removeTodo, completeTodo, toggleTodo } = props;
 
@@ -37,4 +37,4 @@ const Todolist = (props) => {
   );
 };
 
-export default Todolist;
+export default TodoItem;

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import "./App.css";
-import Todo from "./components/TodoForm";
-import Todolist from "./components/TodoItem.js";
+import TodoForm from "./components/TodoForm";
+import TodoItem from "./components/TodoItem.js";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -69,17 +69,17 @@ const App = () => {
   };
 
   const deleteCompletedTodo = (event) => {
-    setStatus("deleteCompletedTodo");
-    setTodos(todos.filter((todo) => !todo.completed));
-    saveTocalStorage(todos.filter((todo) => !todo.completed));
+    const newTodos = todos.filter((todo) => !todo.completed);
+    setTodos(newTodos);
+    saveTocalStorage(newTodos);
   };
 
   return (
     <div className="todo-app">
-      <Todo addTodo={addTodo} />
+      <TodoForm addTodo={addTodo} />
       {filteredTodos.map((todo) => {
         return (
-          <Todolist
+          <TodoItem
             toggleTodo={toggleTodo}
             removeTodo={removeTodo}
             completeTodo={completeTodo}
@@ -120,7 +120,7 @@ const App = () => {
           </button>
         </div>
         <button
-          className={status === "deleteCompletedTodo" ? "on" : "clear-button"}
+          className="clear-button"
           onClick={deleteCompletedTodo}
           value="deleteCompletedTodo"
         >
